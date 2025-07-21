@@ -1,0 +1,54 @@
+# Dependencias de Node.js
+node_modules/
+package-lock.json
+
+# Archivos generados por Cypress
+cypress/screenshots/
+cypress/videos/
+cypress/downloads/
+cypress/results/
+cypress/fixtures/*.json # Opcional, si no deseas versionar fixtures generados dinámicamente
+cypress/reports/
+cypress/logs/
+
+# Archivos de compilación y empaquetado
+dist/
+build/
+out/
+
+# Archivos de configuración del entorno
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Archivos de caché y temporales
+*.log
+*.log.*
+*.cache
+.cache/
+tmp/
+temp/
+
+# Archivos de cobertura de pruebas
+coverage/
+.nyc_output/
+
+# Archivos de configuración del editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de compilación de JavaScript
+*.min.js 
+*.map 
+
+# Otros archivos específicos de Cypress
+cypress.json 
+cypress.env.json 
