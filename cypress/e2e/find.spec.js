@@ -1,6 +1,6 @@
 import { findByStatus } from '../api/pet/getPet';
 
-describe('GET /pet/findByStatus y findByTags', () => {
+describe('GET /pet/findByStatus', () => {
   it('Caso positivo - Búsqueda de pets por status available', () => {
     return findByStatus('available').then((res) => {
       expect(res.status).to.eq(200);
