@@ -6,11 +6,6 @@ export function findByStatus(status) {
 	return cy.request('GET', `/pet/findByStatus?status=${status}`);
 }
 
-export function findByTags(tags) {
-  const param = tags.join(',');
-  return cy.request('GET', `/pet/findByTags?tags=${param}`);
-}
-
 // Helper de polling: reintenta GET /pet/{id} hasta status 200 o agota retries
 export function waitForPet(petId, { retries = 8, delay = 1000 } = {}) {
   const attempt = (count) => {
