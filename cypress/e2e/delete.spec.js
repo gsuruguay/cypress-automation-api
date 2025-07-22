@@ -3,15 +3,16 @@ import { deletePet }    from '../api/pet/deletePet';
 import { generatePet }  from '../data/petFactory';
 
 describe('DELETE /pet/{id}', () => {
-  it('Eliminación de un pet existente', () => {
+  it('Caso positivo - Eliminación de un pet existente', () => {
     const pet = generatePet();
 
-    createPet(pet).then((createRes) => {
+    return createPet(pet).then((createRes) => {
       expect(createRes.status).to.eq(200);
       cy.wait(10000);
 
       deletePet(pet.id).then((deleteRes) => {
         expect(deleteRes.status).to.eq(200);
+        expect(deleteRes.body.message).to.include(pet.id);
 
         cy.request({
           method: 'GET',
@@ -22,6 +23,16 @@ describe('DELETE /pet/{id}', () => {
         });
       });
     });
+  });
+
+  it('Caso negativo - Eliminar un pet inexistente', () => {
+    const fakeId = Date.now();
+
+    return deletePet(fakeId, { failOnStatusCode: false })
+      .then((res) => {
+        expect(res.status).to.eq(404);
+        expect(res.body).to.be.empty;
+      });
   });
 });
 
