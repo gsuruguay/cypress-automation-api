@@ -5,7 +5,7 @@ describe('POST /pet', () => {
   it('Caso positivo - Creación de un pet correctamente', () => {
     const pet = generatePet();
 
-    createPet(pet).then((res) => {
+    return createPet(pet).then((res) => {
       expect(res.status).to.eq(200);
       expect(res.body).to.include({
         id: pet.id,
