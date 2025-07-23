@@ -11,7 +11,7 @@ describe('GET /pet/{id}', () => {
       expect(res.status).to.eq(200);
       expect(res.body).to.include({
         id: petId,
-        name: "boby",
+        name: "Pet Update",
         status: "available"
       });
     });
@@ -35,7 +35,7 @@ describe('GET /pet/{id}', () => {
   });
 
   it('Caso negativo - Búsqueda de un pet con ID inexistente', () => {
-    const fakeId = 13906;
+    const fakeId = Date.now();
 
     return cy.request({
       method: 'GET',
