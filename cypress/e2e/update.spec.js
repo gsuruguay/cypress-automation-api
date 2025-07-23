@@ -2,8 +2,8 @@ import { updatePet }     from '../api/pet/updatePet';
 import { waitForPet }    from '../api/pet/getPet';
 
 describe('PUT /pet', () => {
-  it('Actualización de pet existente', () => {
-    const petId   = 1008888;
+  it('Caso positivo - Actualización de pet existente', () => {
+    const petId   = 84138;
     const payload = {
       id: petId,
       name: 'Pet Update',
@@ -34,5 +34,19 @@ describe('PUT /pet', () => {
           .to.be.an('array')
           .and.include.members(payload.photoUrls);
       });
+  });
+  
+  it('Caso negativo - Actualización de pet inexistente', () => {
+    const petId   = Date.now();
+    const payload = {
+      id: petId,
+      name: 'Pet inexistente',
+      photoUrls: ['img-inexistente.jpg']
+    };
+
+    return updatePet(payload)
+      .then((putRes) => {
+        expect(putRes.status).to.eq(400, 'PUT debe devolver 400');
+      })
   });
 });

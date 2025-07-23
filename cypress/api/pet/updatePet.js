@@ -6,7 +6,8 @@ export function updatePet(petData) {
       accept: 'application/json',
       'Content-Type': 'application/json'
     },
-    body: petData
+    body: petData,
+    failOnStatusCode: false
   });
 }
 
