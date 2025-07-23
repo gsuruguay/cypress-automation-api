@@ -86,14 +86,6 @@ npx cypress open
 - `cy.then()` y promesas encadenadas para manejar asincronía.
 - `cy.task('log')` para debugging sin romper el flujo.
 
-## 🛠️ Extensibilidad
-
-Este proyecto fue diseñado para poder crecer fácilmente:
-
-- 📦 Nuevas entidades pueden agregarse replicando la arquitectura de `pet`.
-- 🧪 Nuevas suites pueden agregarse en `cypress/e2e/` con datos generados.
-- ✅ Se puede integrar con Allure, ReportPortal, Jenkins, GitHub Actions, etc.
-
 ## ✍️ Autor
 
 **Guillermo Suruguay**  
